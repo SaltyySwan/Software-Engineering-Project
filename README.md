@@ -3,12 +3,6 @@
 
 ## EatMoveSleep - Health and Fitness Tracker
 
-### Students:
-- **Meliha Mašić** 220302115
-- **Muris Mušija** 190302004
-- **Nedžma Hadžihasanović** 220302125
-- **Lamija Rašidagić** 220302118
-
 ## Table of Contents
 1. [Project Definition](#project-definition)
 2. [Objectives](#objectives)
@@ -70,4 +64,10 @@ The team will use **Trello** to track progress with weekly task updates. **GitHu
 
 ## Figma App Mockup
 A **Figma prototype** has been created to visualize the application's design and layout.
+
+### Students working on the project:
+- **Meliha Mašić** 220302115
+- **Muris Mušija** 190302004
+- **Nedžma Hadžihasanović** 220302125
+- **Lamija Rašidagić** 220302118
 

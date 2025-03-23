@@ -3,13 +3,11 @@
 
 ## EatMoveSleep - Health and Fitness Tracker
 
-### Authors:
-- **Meliha Mašić** (220302115)
-- **Muris Mušija** (190302004)
-- **Nedžma Hadžihasanović** (220302125)
-- **Lamija Rašidagić** (220302118)
-
-### Date: March 23, 2025
+### Students:
+- **Meliha Mašić** 220302115
+- **Muris Mušija** 190302004
+- **Nedžma Hadžihasanović** 220302125
+- **Lamija Rašidagić** 220302118
 
 ## Table of Contents
 1. [Project Definition](#project-definition)

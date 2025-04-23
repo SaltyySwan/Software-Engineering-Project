@@ -1,5 +1,5 @@
-# SE-project
 # CS 308 Software Engineering
+# SE-project
 
 ## EatMoveSleep - Health and Fitness Tracker
 
@@ -66,8 +66,9 @@ The team will use **Trello** to track progress with weekly task updates. **GitHu
 A **Figma prototype** has been created to visualize the application's design and layout.
 
 ### Students working on the project:
-- **Meliha Mašić** 220302115
-- **Muris Mušija** 190302004
-- **Nedžma Hadžihasanović** 220302125
-- **Lamija Rašidagić** 220302118
+- **Meliha Mašić** 
+- **Muris Mušija**
+- **Hamza Hadžiabdić**
+- **Nedžma Hadžihasanović** 
+- **Lamija Rašidagić** 
 

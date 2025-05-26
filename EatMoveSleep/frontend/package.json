@@ -9,16 +9,22 @@
     "lint": "eslint .",
     "start": "react-native start",
     "test": "jest",
-    "build:tailwind": "tailwindcss --input input.css --output tailwind.css --no-autoprefixer && tailwind-rn",
-    "dev:tailwind": "concurrently \"tailwindcss --input input.css --output tailwind.css --no-autoprefixer --watch\" \"tailwind-rn --watch\""
+    "build:tailwind": "tailwindcss --input ./global.css -o ./tailwind.css --no-autoprefixer && tailwind-rn -i ./tailwind.css -o ./tailwind.json",
+    "dev:tailwind": "concurrently \"tailwindcss -i ./global.css -o ./tailwind.css --no-autoprefixer --watch\" \"tailwind-rn-i ./tailwind.css -o ./tailwind.json\""
   },
   "dependencies": {
     "@react-navigation/native": "7.1.8",
+    "@tailwindcss/cli": "^4.1.7",
     "glob": "^11.0.2",
+    "nativewind": "^4.1.23",
+    "pod-install": "^0.3.9",
     "react": "18.3.1",
     "react-native": "0.77.2",
     "react-native-gesture-handler": "2.25.0",
-    "tailwind-rn": "4.2.0"
+    "react-native-reanimated": "^3.17.5",
+    "react-native-safe-area-context": "^5.4.1",
+    "tailwind-rn": "4.2.0",
+    "tailwindcss": "^3.4.17"
   },
   "devDependencies": {
     "@babel/core": "^7.25.2",

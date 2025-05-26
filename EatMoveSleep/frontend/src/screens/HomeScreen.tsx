@@ -7,7 +7,7 @@ import {
   TouchableOpacity,
   StyleSheet,
 } from 'react-native';
-import { useTailwind } from '../tailwind/withContext';
+import { useTailwind } from '../tailwind/withContext'; // ** TO-DO : Import the correct file name **
 import Heading from '../components/Heading';
 import TodayPlan from '../components/TodayPlan';
 import TodayPlanWrapper from '../components/TodayPlanWrapper';

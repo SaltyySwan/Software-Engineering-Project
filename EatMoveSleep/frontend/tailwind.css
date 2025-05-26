@@ -1,0 +1,106 @@
+/*! tailwindcss v4.1.7 | MIT License | https://tailwindcss.com */
+.absolute {
+  position: absolute;
+}
+.relative {
+  position: relative;
+}
+.top-\[102px\] {
+  top: 102px;
+}
+.top-\[768px\] {
+  top: 768px;
+}
+.left-\[25px\] {
+  left: 25px;
+}
+.left-\[46px\] {
+  left: 46px;
+}
+.left-\[142px\] {
+  left: 142px;
+}
+.left-\[214px\] {
+  left: 214px;
+}
+.left-\[261px\] {
+  left: 261px;
+}
+.left-\[286px\] {
+  left: 286px;
+}
+.container {
+  width: 100%;
+}
+.block {
+  display: block;
+}
+.flex {
+  display: flex;
+}
+.h-\[23px\] {
+  height: 23px;
+}
+.h-\[27px\] {
+  height: 27px;
+}
+.h-\[72px\] {
+  height: 72px;
+}
+.h-\[844px\] {
+  height: 844px;
+}
+.w-\[72px\] {
+  width: 72px;
+}
+.w-\[98px\] {
+  width: 98px;
+}
+.w-\[340px\] {
+  width: 340px;
+}
+.w-\[350px\] {
+  width: 350px;
+}
+.w-\[352px\] {
+  width: 352px;
+}
+.w-\[390px\] {
+  width: 390px;
+}
+.flex-1 {
+  flex: 1;
+}
+.flex-row {
+  flex-direction: row;
+}
+.items-center {
+  align-items: center;
+}
+.justify-start {
+  justify-content: flex-start;
+}
+.rounded-\[32px\] {
+  border-radius: 32px;
+}
+.rounded-\[43px\] {
+  border-radius: 43px;
+}
+.bg-\[\#22acf1\] {
+  background-color: #22acf1;
+}
+.bg-\[\#192126\] {
+  background-color: #192126;
+}
+.bg-\[\#f6f6f9\] {
+  background-color: #f6f6f9;
+}
+.text-\[13px\] {
+  font-size: 13px;
+}
+.text-\[\#192126\] {
+  color: #192126;
+}
+.text-\[\#19212680\] {
+  color: #19212680;
+}

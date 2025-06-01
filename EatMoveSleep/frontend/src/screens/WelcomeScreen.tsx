@@ -5,7 +5,7 @@ export default function WelcomeScreen({ navigation }: any) {
   return (
     <View style={styles.container}>
       {/* Gornja slika */}
-      <Image source={require('../../assets/naslovna.png')} style={styles.image} />
+      <Image source={require('../assets/naslovna.png')} style={styles.image} />
 
       {/* Naslov */}
       <View style={styles.titleContainer}>

@@ -5,9 +5,9 @@ import {
   TextInput,
   Text,
   TouchableOpacity,
-  StyleSheet,
 } from 'react-native';
-import { useTailwind } from '../tailwind/withContext'; // ** TO-DO : Import the correct file name **
+import { useTailwind } from 'tailwind-rn';
+
 import Heading from '../components/Heading';
 import TodayPlan from '../components/TodayPlan';
 import TodayPlanWrapper from '../components/TodayPlanWrapper';
@@ -23,19 +23,17 @@ export default function HomeScreen() {
         <Heading />
 
         <View style={tailwind('absolute top-[102px] left-5 w-[352px] h-12')}>
-          <View style={tailwind('w-[350px] h-12 bg-white rounded-xl relative')}>
+          <View style={tailwind('w-[350px] h-12 bg-white rounded-[32px] relative')}>
             <View style={tailwind('absolute top-3 left-3 w-6 h-6')}>
               <Image
-                source={require('../assets/young-muscular-athlete-practicing.png')}
+                source={require('src\assets\young-muscular-athlete-practicing-squats-gym-with-weight 1.png')}
                 style={tailwind('w-4 h-4')}
               />
             </View>
 
             <TextInput
               placeholder="Search"
-              style={tailwind(
-                'absolute top-4 left-[46px] text-sm text-[#19212680]'
-              )}
+              style={tailwind('absolute top-4 left-[46px] text-[13px] text-[#19212680]')}
             />
           </View>
         </View>

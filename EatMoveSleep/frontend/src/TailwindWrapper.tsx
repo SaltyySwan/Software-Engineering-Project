@@ -1,17 +1,12 @@
-import React, { ReactNode } from 'react';
+import React from 'react';
 import { View } from 'react-native';
-import { TailwindProvider } from './tailwind/withContext';
+import { TailwindProvider } from 'tailwind-rn';
 import utilities from '../tailwind.json';
 
-type Props = {
-  children: ReactNode;
-};
-
-const TailwindWrapper = ({ children }: Props) => {
+const TailwindWrapper = ({ children }: { children: React.ReactNode }) => {
   return (
-    <TailwindProvider>
+    //<TailwindProvider  utilities={utilities}>
       <View style={{ flex: 1 }}>{children}</View>
-    </TailwindProvider>
   );
 };
 

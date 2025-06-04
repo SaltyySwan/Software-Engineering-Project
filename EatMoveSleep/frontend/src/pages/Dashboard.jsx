@@ -139,13 +139,13 @@ const actionButton = {
 };
 
 const circleButton = {
-  width: '20px',
-  height: '30px',
+  width: '25px',
+  height: '25px',
   borderRadius: '50%',
   backgroundColor: 'white',
   color: '#38bdf8',
   border: 'none',
-  fontSize: '1.5rem',
+  fontSize: '1.0rem',
   fontWeight: 'bold',
   cursor: 'pointer',
   display: 'flex',

@@ -24,8 +24,21 @@ public class Sleep {
     @Enumerated(EnumType.STRING)
     private SleepQuality quality;
 
+    @Column(name = "hours", nullable = false)
+    private  int hours = this.getSleepStart().getHour() + this.getSleepEnd().getHour();
+
+
     public enum SleepQuality {
         poor, average, good, excellent
+    }
+
+
+    public int getHours() {
+        return hours;
+    }
+
+    public void setHours(int hours) {
+        this.hours = hours;
     }
 
     public void setId(Long id) {

@@ -17,9 +17,6 @@ public class Workout {
     @Column(nullable = false, length = 100)
     private String type;
 
-    @Column(name = "duration_minutes", nullable = false)
-    private Integer durationMinutes;
-
     @Column(name = "workout_id", nullable = false)
     private int workoutId;
 
@@ -60,9 +57,7 @@ public class Workout {
         this.type = type;
     }
 
-    public void setDurationMinutes(Integer durationMinutes) {
-        this.durationMinutes = durationMinutes;
-    }
+
 
     public void setCaloriesBurned(Integer caloriesBurned) {
         this.caloriesBurned = caloriesBurned;
@@ -84,9 +79,6 @@ public class Workout {
         return type;
     }
 
-    public Integer getDurationMinutes() {
-        return durationMinutes;
-    }
 
     public Integer getCaloriesBurned() {
         return caloriesBurned;

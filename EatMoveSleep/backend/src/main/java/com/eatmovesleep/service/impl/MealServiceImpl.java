@@ -48,7 +48,6 @@ public class MealServiceImpl implements MealService {
         existingMeal.setName(updatedMeal.getName());
         existingMeal.setCalories(updatedMeal.getCalories());
         existingMeal.setMealTime(updatedMeal.getMealTime());
-        existingMeal.setCategory(updatedMeal.getCategory());
 
         return mealRepository.save(existingMeal);
     }

@@ -26,13 +26,7 @@ public class Meal {
     @Column(name = "meal_time", nullable = false)
     private LocalDateTime mealTime;
 
-    @Enumerated(EnumType.STRING)
-    private MealCategory category;
 
-    // Enum for category
-    public enum MealCategory {
-        breakfast, lunch, dinner, snack
-    }
 
 
     public Long getId() {
@@ -75,11 +69,5 @@ public class Meal {
         this.mealTime = mealTime;
     }
 
-    public MealCategory getCategory() {
-        return category;
-    }
 
-    public void setCategory(MealCategory category) {
-        this.category = category;
-    }
 }

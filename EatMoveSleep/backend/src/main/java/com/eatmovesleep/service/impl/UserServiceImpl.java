@@ -40,10 +40,9 @@ public class UserServiceImpl implements UserService {
                 .orElseThrow(() -> new RuntimeException("User not found with ID: " + id));
 
         existing.setUsername(updatedUser.getUsername());
-        existing.setEmail(updatedUser.getEmail());
         existing.setAge(updatedUser.getAge());
         existing.setWeight(updatedUser.getWeight());
-        existing.setHeight(updatedUser.getHeight());
+        existing.setFitnesGoal(updatedUser.getFitnesGoal());
 
         return userRepository.save(existing);
     }

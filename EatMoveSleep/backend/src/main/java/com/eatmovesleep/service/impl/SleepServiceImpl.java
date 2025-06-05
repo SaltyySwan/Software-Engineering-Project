@@ -51,6 +51,7 @@ public class SleepServiceImpl implements SleepService {
         existingSleep.setSleepStart(updatedSleep.getSleepStart());
         existingSleep.setSleepEnd(updatedSleep.getSleepEnd());
         existingSleep.setQuality(updatedSleep.getQuality());
+        existingSleep.setHours(updatedSleep.getHours());
 
         return SleepRepository.save(existingSleep);
     }

@@ -3,7 +3,7 @@ import jakarta.persistence.*;
 
 
 import java.math.BigDecimal;
-import java.time.LocalDateTime;
+
 
 @Entity
 @Table(name = "users")
@@ -15,21 +15,21 @@ public class User {
     @Column(nullable = false, unique = true, length = 50)
     private String username;
 
-    @Column(nullable = false, unique = true, length = 100)
-    private String email;
-
+    @Column(name = "age")
     private Integer age;
 
+    @Column(name = "weight")
     private BigDecimal weight;
 
-    private BigDecimal height;
+    @Column(name = "fitnesGoal")
+    private String fitnesGoal;
 
-    @Column(name = "created_at")
-    private LocalDateTime createdAt;
+    public String getFitnesGoal() {
+        return fitnesGoal;
+    }
 
-    @PrePersist
-    protected void onCreate() {
-        this.createdAt = LocalDateTime.now();
+    public void setFitnesGoal(String fitnesGoal) {
+        this.fitnesGoal = fitnesGoal;
     }
 
     public void setId(Long id) {
@@ -40,9 +40,6 @@ public class User {
         this.username = username;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
-    }
 
     public void setAge(Integer age) {
         this.age = age;
@@ -52,13 +49,9 @@ public class User {
         this.weight = weight;
     }
 
-    public void setHeight(BigDecimal height) {
-        this.height = height;
-    }
 
-    public void setCreatedAt(LocalDateTime createdAt) {
-        this.createdAt = createdAt;
-    }
+
+
 
     public Long getId() {
         return id;
@@ -68,9 +61,7 @@ public class User {
         return username;
     }
 
-    public String getEmail() {
-        return email;
-    }
+
 
     public Integer getAge() {
         return age;
@@ -80,13 +71,8 @@ public class User {
         return weight;
     }
 
-    public BigDecimal getHeight() {
-        return height;
-    }
 
-    public LocalDateTime getCreatedAt() {
-        return createdAt;
-    }
+
 
 
 }

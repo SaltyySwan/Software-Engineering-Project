@@ -1,4 +1,7 @@
-spring:
+server:
+  port: 3000
+
+  spring:
    datasource:
      url: jdbc:mysql://localhost:3306/new_schema?useSSL=false&serverTimezone=UTC
      username: root

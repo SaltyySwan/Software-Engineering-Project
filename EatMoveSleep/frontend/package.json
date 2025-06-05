@@ -1,50 +1,48 @@
 {
-  "name": "frontend",
-  "version": "0.0.1",
+  "name": "ems-web",
+  "version": "0.1.0",
   "private": true,
-  "scripts": {
-    "upgrade": "react-native upgrade",
-    "android": "react-native run-android",
-    "ios": "react-native run-ios",
-    "lint": "eslint .",
-    "start": "react-native start",
-    "test": "jest",
-    "build:tailwind": "tailwindcss --input input.css --output tailwind.css --no-autoprefixer && tailwind-rn",
-    "dev:tailwind": "concurrently \"tailwindcss --input input.css --output tailwind.css --no-autoprefixer --watch\" \"tailwind-rn --watch\""
-  },
   "dependencies": {
-    "@react-navigation/native": "7.1.8",
-    "glob": "^11.0.2",
-    "react": "18.3.1",
-    "react-native": "0.77.2",
-    "react-native-gesture-handler": "2.25.0",
-    "tailwind-rn": "4.2.0"
+    "@testing-library/dom": "^10.4.0",
+    "@testing-library/jest-dom": "^6.6.3",
+    "@testing-library/react": "^16.3.0",
+    "@testing-library/user-event": "^13.5.0",
+    "cors": "^2.8.5",
+    "express": "^5.1.0",
+    "mysql": "^2.18.1",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0",
+    "react-router-dom": "^7.6.1",
+    "react-scripts": "5.0.1",
+    "web-vitals": "^2.1.4"
   },
-  "devDependencies": {
-    "@babel/core": "^7.25.2",
-    "@babel/preset-env": "^7.25.3",
-    "@babel/runtime": "^7.25.0",
-    "@react-native-community/cli": "15.0.1",
-    "@react-native-community/cli-platform-android": "15.0.1",
-    "@react-native-community/cli-platform-ios": "15.0.1",
-    "@react-native/babel-preset": "0.77.2",
-    "@react-native/eslint-config": "0.77.2",
-    "@react-native/metro-config": "0.77.2",
-    "@react-native/typescript-config": "0.77.2",
-    "@types/jest": "^29.5.13",
-    "@types/react": "^18.2.6",
-    "@types/react-test-renderer": "^18.0.0",
-    "eslint": "^8.19.0",
-    "jest": "^29.6.3",
-    "prettier": "2.8.8",
-    "react-test-renderer": "18.3.1",
-    "typescript": "5.0.4"
+  "scripts": {
+    "start": "set BROWSER=none && react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
   },
-  "engines": {
-    "node": ">=18"
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
   },
-  "resolutions": {
-    "glob": "11.0.2"
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
   },
-  "packageManager": "yarn@1.22.22+sha512.a6b2f7906b721bba3d67d4aff083df04dad64c399707841b7acf00f6b133b7ac24255f2652fa22ae3534329dc6180534e98d17432037ff6fd140556e2bb3137e"
+  "description": "This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).",
+  "main": "index.js",
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
 }

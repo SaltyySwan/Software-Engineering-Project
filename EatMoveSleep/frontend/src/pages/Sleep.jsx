@@ -1,5 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { getSleepAnalytics } from '../services/api';
+
+
+
 
 const Sleep = () => {
   const navigate = useNavigate();
@@ -7,9 +11,11 @@ const Sleep = () => {
   const [hours, setHours] = useState('');
   const [quality, setQuality] = useState('');
   const [records, setRecords] = useState([]);
+  const [sleep, setSleep] = useState([]);
 
   useEffect(() => {
     const isLoggedIn = localStorage.getItem('ems_logged_in');
+    getSleepAnalytics(1).then(setSleep)
     if (!isLoggedIn) {
       navigate('/');
       return;
@@ -48,6 +54,8 @@ const Sleep = () => {
     localStorage.setItem('ems_sleep', JSON.stringify(updated));
   };
 
+  
+
   return (
     <div style={{ padding: '2rem', fontFamily: 'sans-serif', maxWidth: '800px', margin: '0 auto' }}>
       <h2 style={{ textAlign: 'center', marginBottom: '2rem' }}>😴 Sleep Tracker</h2>
@@ -81,9 +89,9 @@ const Sleep = () => {
       <h3 style={{ textAlign: 'center', marginTop: '3rem' }}>Saved Sleep Records</h3>
 
       <div style={gridStyle}>
-        {records.map((r) => (
-          <div key={r.id} style={cardStyle}>
-            <h4>🛏 {r.date}</h4>
+        {sleep.map((r) => (
+          <div key={r.sleep_id} style={cardStyle}>
+            <h4>🛏 {r.date_logged}</h4>
             <p><strong>Hours:</strong> {r.hours} h</p>
             <p><strong>Quality:</strong> {r.quality}/5</p>
             <button onClick={() => handleDelete(r.id)} style={deleteStyle}>Delete</button>

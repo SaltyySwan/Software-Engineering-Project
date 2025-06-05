@@ -1,48 +1,48 @@
 package com.eatmovesleep.model;
 import jakarta.persistence.*;
+
+import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
 @Entity
-@Table(name = "sleep_logs")
+@Table(name = "sleep_records")
 public class Sleep {
 
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Long sleep_id;
 
     @ManyToOne(optional = false)
     @JoinColumn(name = "user_id")
     private User user;
 
-    @Column(name = "sleep_start", nullable = false)
-    private LocalDateTime sleepStart;
-
-    @Column(name = "sleep_end", nullable = false)
-    private LocalDateTime sleepEnd;
-
     @Enumerated(EnumType.STRING)
-    private SleepQuality quality;
+    private SleepQuality sleep_quality;
 
     @Column(name = "hours", nullable = false)
-    private  int hours = this.getSleepStart().getHour() + this.getSleepEnd().getHour();
-
+    private BigDecimal hours;
 
     public enum SleepQuality {
         poor, average, good, excellent
     }
 
+    @Transient
+    private LocalDateTime sleepStart;
 
-    public int getHours() {
+    @Transient
+    private LocalDateTime sleepEnd;
+
+    public BigDecimal  getHours() {
         return hours;
     }
 
-    public void setHours(int hours) {
+    public void setHours(BigDecimal  hours) {
         this.hours = hours;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setSleep_id(Long sleep_id) {
+        this.sleep_id = sleep_id;
     }
 
     public void setUser(User user) {
@@ -57,12 +57,12 @@ public class Sleep {
         this.sleepEnd = sleepEnd;
     }
 
-    public void setQuality(SleepQuality quality) {
-        this.quality = quality;
+    public void setSleep_quality(SleepQuality sleep_quality) {
+        this.sleep_quality = sleep_quality;
     }
 
-    public Long getId() {
-        return id;
+    public Long getSleep_id() {
+        return sleep_id;
     }
 
     public User getUser() {
@@ -77,8 +77,8 @@ public class Sleep {
         return sleepEnd;
     }
 
-    public SleepQuality getQuality() {
-        return quality;
+    public SleepQuality getSleep_quality() {
+        return sleep_quality;
     }
 
 

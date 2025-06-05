@@ -11,7 +11,7 @@
 	<groupId>com.example</groupId>
 	<artifactId>EatMoveSleep</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>EatMoveSleep</name>
+	<food_name>EatMoveSleep</food_name>
 	<description>Demo project for Spring Boot</description>
 	<url/>
 	<licenses>

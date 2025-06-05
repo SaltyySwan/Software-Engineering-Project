@@ -8,7 +8,7 @@ public class Workout {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Long workout_id;
 
     @ManyToOne(optional = false)
     @JoinColumn(name = "user_id")
@@ -17,8 +17,7 @@ public class Workout {
     @Column(nullable = false, length = 100)
     private String type;
 
-    @Column(name = "workout_id", nullable = false)
-    private int workoutId;
+
 
     @Column(name = "calories", nullable = false)
     private int calories;
@@ -27,15 +26,9 @@ public class Workout {
     private Integer caloriesBurned;
 
     @Column(name = "date_logged", nullable = false)
-    private LocalDateTime dateLogged;
+    private java.sql.Date dateLogged;
 
-    public int getWorkoutId() {
-        return workoutId;
-    }
 
-    public void setWorkoutId(int workoutId) {
-        this.workoutId = workoutId;
-    }
 
     public int getCalories() {
         return calories;
@@ -45,8 +38,8 @@ public class Workout {
         this.calories = calories;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setWorkout_id(Long workout_id) {
+        this.workout_id = workout_id;
     }
 
     public void setUser(User user) {
@@ -63,12 +56,12 @@ public class Workout {
         this.caloriesBurned = caloriesBurned;
     }
 
-    public void setWorkoutTime(LocalDateTime dateLogged) {
+    public void setWorkoutTime(java.sql.Date dateLogged) {
         this.dateLogged = dateLogged;
     }
 
-    public Long getId() {
-        return id;
+    public Long getWorkout_id() {
+        return workout_id;
     }
 
     public User getUser() {
@@ -84,7 +77,7 @@ public class Workout {
         return caloriesBurned;
     }
 
-    public LocalDateTime getWorkoutTime() {
+    public java.sql.Date getWorkoutTime() {
         return dateLogged;
     }
 }

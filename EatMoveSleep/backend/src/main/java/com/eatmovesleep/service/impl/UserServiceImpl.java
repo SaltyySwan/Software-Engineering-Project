@@ -39,10 +39,10 @@ public class UserServiceImpl implements UserService {
         User existing = userRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("User not found with ID: " + id));
 
-        existing.setUsername(updatedUser.getUsername());
+        existing.setName(updatedUser.getName());
         existing.setAge(updatedUser.getAge());
         existing.setWeight(updatedUser.getWeight());
-        existing.setFitnesGoal(updatedUser.getFitnesGoal());
+        existing.setFitnessGoal(updatedUser.getFitnessGoal());
 
         return userRepository.save(existing);
     }
@@ -57,7 +57,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public User getUserByUserName(String username) {
-        return userRepository.findByUsername(username)
+        return userRepository.findByName(username)
                 .orElseThrow(() -> new RuntimeException("User not found with username: " + username));
     }
 }

@@ -45,7 +45,7 @@ public class MealServiceImpl implements MealService {
         Meal existingMeal = mealRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Meal not found with ID: " + id));
 
-        existingMeal.setName(updatedMeal.getName());
+        existingMeal.setFood_name(updatedMeal.getFood_name());
         existingMeal.setCalories(updatedMeal.getCalories());
         existingMeal.setMealTime(updatedMeal.getMealTime());
 

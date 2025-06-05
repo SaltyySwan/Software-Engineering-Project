@@ -1,6 +1,8 @@
 package com.eatmovesleep.model;
 import jakarta.persistence.*;
 
+import java.math.BigInteger;
+
 @Entity
 @Table(name = "goals")
 public class Goal {
@@ -18,9 +20,9 @@ public class Goal {
     private String type; // e.g., "calories", "steps", "sleep"
 
     @Column(nullable = false)
-    private Double target;
+    private BigInteger target;
 
-    private Double progress = 0.0;
+    private BigInteger progress;
 
     @Enumerated(EnumType.STRING)
     private Status status = Status.in_progress;
@@ -53,19 +55,19 @@ public class Goal {
         this.type = type;
     }
 
-    public Double getTarget() {
+    public BigInteger getTarget() {
         return target;
     }
 
-    public void setTarget(Double target) {
+    public void setTarget(BigInteger target) {
         this.target = target;
     }
 
-    public Double getProgress() {
+    public BigInteger getProgress() {
         return progress;
     }
 
-    public void setProgress(Double progress) {
+    public void setProgress(BigInteger progress) {
         this.progress = progress;
     }
 

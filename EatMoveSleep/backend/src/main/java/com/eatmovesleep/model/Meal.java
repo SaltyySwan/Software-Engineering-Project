@@ -2,39 +2,38 @@ package com.eatmovesleep.model;
 
 import jakarta.persistence.*;
 
-import java.time.LocalDateTime;
-
 
 @Entity
 @Table(name = "meals")
 public class Meal {
 
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Long meal_id;
 
     @ManyToOne(optional = false)
     @JoinColumn(name = "user_id")
     private User user;
 
     @Column(nullable = false, length = 100)
-    private String name;
+    private String food_name;
 
     @Column(nullable = false)
     private Integer calories;
 
-    @Column(name = "meal_time", nullable = false)
-    private LocalDateTime mealTime;
+    @Column(name = "date_logged", nullable = false)
+    private java.sql.Date mealTime;
 
 
 
 
     public Long getId() {
-        return id;
+        return meal_id;
     }
 
     public void setId(Long id) {
-        this.id = id;
+        this.meal_id = id;
     }
 
     public User getUser() {
@@ -45,12 +44,12 @@ public class Meal {
         this.user = user;
     }
 
-    public String getName() {
-        return name;
+    public String getFood_name() {
+        return food_name;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setFood_name(String food_name) {
+        this.food_name = food_name;
     }
 
     public Integer getCalories() {
@@ -61,11 +60,11 @@ public class Meal {
         this.calories = calories;
     }
 
-    public LocalDateTime getMealTime() {
+    public java.sql.Date getMealTime() {
         return mealTime;
     }
 
-    public void setMealTime(LocalDateTime mealTime) {
+    public void setMealTime(java.sql.Date mealTime) {
         this.mealTime = mealTime;
     }
 

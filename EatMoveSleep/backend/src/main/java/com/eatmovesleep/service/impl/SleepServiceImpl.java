@@ -4,6 +4,7 @@ import com.eatmovesleep.model.Sleep;
 import com.eatmovesleep.repository.SleepRepository;
 import com.eatmovesleep.service.SleepService;
 import org.springframework.stereotype.Service;
+import java.math.BigDecimal;
 
 import java.util.List;
 
@@ -50,8 +51,11 @@ public class SleepServiceImpl implements SleepService {
         existingSleep.setUser(updatedSleep.getUser());
         existingSleep.setSleepStart(updatedSleep.getSleepStart());
         existingSleep.setSleepEnd(updatedSleep.getSleepEnd());
-        existingSleep.setQuality(updatedSleep.getQuality());
-        existingSleep.setHours(updatedSleep.getHours());
+        existingSleep.setSleep_quality(updatedSleep.getSleep_quality());
+        existingSleep.setHours(
+                new BigDecimal(updatedSleep.getSleepStart().getHour() +
+                        updatedSleep.getSleepEnd().getHour())
+        );
 
         return SleepRepository.save(existingSleep);
     }

@@ -51,8 +51,7 @@ public class WorkoutServiceImpl implements WorkoutService {
         existingWorkout.setWorkoutTime(updatedWorkout.getWorkoutTime());
         existingWorkout.setType(updatedWorkout.getType());
         existingWorkout.setCalories(updatedWorkout.getCalories());
-        existingWorkout.setWorkoutId(updatedWorkout.getWorkoutId());
-        existingWorkout.setWorkoutId(updatedWorkout.getWorkoutId());
+        existingWorkout.setWorkout_id(updatedWorkout.getWorkout_id());
         return WorkoutRepository.save(existingWorkout);
     }
 }

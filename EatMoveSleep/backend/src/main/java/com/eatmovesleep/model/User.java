@@ -9,11 +9,12 @@ import java.math.BigDecimal;
 @Table(name = "users")
 public class User {
     @Id
+    @Column(name = "user_id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Column(nullable = false, unique = true, length = 50)
-    private String username;
+    private String name;
 
     @Column(name = "age")
     private Integer age;
@@ -21,23 +22,23 @@ public class User {
     @Column(name = "weight")
     private BigDecimal weight;
 
-    @Column(name = "fitnesGoal")
-    private String fitnesGoal;
+    @Column(name = "fitness_goal")
+    private String fitnessGoal;
 
-    public String getFitnesGoal() {
-        return fitnesGoal;
+    public String getFitnessGoal() {
+        return fitnessGoal;
     }
 
-    public void setFitnesGoal(String fitnesGoal) {
-        this.fitnesGoal = fitnesGoal;
+    public void setFitnessGoal(String fitnessGoal) {
+        this.fitnessGoal = fitnessGoal;
     }
 
     public void setId(Long id) {
         this.id = id;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
+    public void setName(String name) {
+        this.name = name;
     }
 
 
@@ -57,8 +58,8 @@ public class User {
         return id;
     }
 
-    public String getUsername() {
-        return username;
+    public String getName() {
+        return name;
     }
 
 

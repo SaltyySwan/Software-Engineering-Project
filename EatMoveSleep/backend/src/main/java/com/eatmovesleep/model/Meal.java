@@ -10,7 +10,7 @@ public class Meal {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long meal_id;
+    private Long meal_id=null;
 
     @ManyToOne(optional = false)
     @JoinColumn(name = "user_id")

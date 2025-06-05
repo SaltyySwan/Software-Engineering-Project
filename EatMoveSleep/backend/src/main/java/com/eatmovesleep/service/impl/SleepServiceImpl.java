@@ -4,7 +4,6 @@ import com.eatmovesleep.model.Sleep;
 import com.eatmovesleep.repository.SleepRepository;
 import com.eatmovesleep.service.SleepService;
 import org.springframework.stereotype.Service;
-import java.math.BigDecimal;
 
 import java.util.List;
 
@@ -19,8 +18,8 @@ public class SleepServiceImpl implements SleepService {
     }
 
     @Override
-    public Sleep saveSleep(Sleep Sleep) {
-        return SleepRepository.save(Sleep);
+    public Sleep createSleep(Sleep sleep) {
+        return SleepRepository.save(sleep);
     }
 
 
@@ -49,13 +48,9 @@ public class SleepServiceImpl implements SleepService {
                 .orElseThrow(() -> new RuntimeException("Sleep not found with ID: " + id));
 
         existingSleep.setUser(updatedSleep.getUser());
-        existingSleep.setSleepStart(updatedSleep.getSleepStart());
-        existingSleep.setSleepEnd(updatedSleep.getSleepEnd());
         existingSleep.setSleep_quality(updatedSleep.getSleep_quality());
-        existingSleep.setHours(
-                new BigDecimal(updatedSleep.getSleepStart().getHour() +
-                        updatedSleep.getSleepEnd().getHour())
-        );
+        existingSleep.setDate(updatedSleep.getDate());
+        existingSleep.setHours(updatedSleep.getHours());
 
         return SleepRepository.save(existingSleep);
     }

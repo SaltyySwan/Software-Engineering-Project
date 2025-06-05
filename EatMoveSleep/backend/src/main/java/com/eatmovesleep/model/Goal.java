@@ -9,8 +9,7 @@ public class Goal {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "goal_id")
-    private Long goalId;
+    private Long goalId=null;
 
     @ManyToOne(optional = false)
     @JoinColumn(name = "user_id")

@@ -6,7 +6,7 @@ import java.util.List;
 
 public interface SleepService {
 
-    Sleep saveSleep(Sleep Sleep);
+    Sleep createSleep(Sleep Sleep);
 
     Sleep getSleepById(Long id);
 

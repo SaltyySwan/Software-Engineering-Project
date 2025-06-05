@@ -9,7 +9,7 @@ const Sleep = () => {
   const navigate = useNavigate();
   const [date, setDate] = useState('');
   const [hours, setHours] = useState('');
-  const [quality, setQuality] = useState('');
+  const [quality, setQuality] = useState('good');
   const [records, setRecords] = useState([]);
   const [sleep, setSleep] = useState([]);
 
@@ -94,7 +94,7 @@ const Sleep = () => {
             <h4>🛏 {r.date_logged}</h4>
             <p><strong>Hours:</strong> {r.hours} h</p>
             <p><strong>Quality:</strong> {r.quality}/5</p>
-            <button onClick={() => handleDelete(r.id)} style={deleteStyle}>Delete</button>
+            <button onClick={() => handleDelete(r.user_id)} style={deleteStyle}>Delete</button>
           </div>
         ))}
       </div>

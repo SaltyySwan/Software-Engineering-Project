@@ -12,7 +12,8 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/sleep")
+@RequestMapping( value = "/api/sleep",method = RequestMethod.POST,
+        headers = "Accept=application/json")
 public class SleepController {
 
     @Autowired
@@ -25,8 +26,8 @@ public class SleepController {
     // Create a new sleep
     @PostMapping
     public ResponseEntity<Sleep> createSleep(@RequestBody Sleep sleep) {
-        Sleep savedSleep = sleepService.saveSleep(sleep);
-        return new ResponseEntity<>(savedSleep, HttpStatus.CREATED);
+        Sleep saved = sleepService.createSleep(sleep);
+        return ResponseEntity.ok(saved);
     }
 
     // Get all sleeps for a specific user

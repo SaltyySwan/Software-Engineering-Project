@@ -1,4 +1,3 @@
-@ -1,10 +1,28 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 
@@ -8,7 +7,7 @@ import grilledsalmon from '../assets/grilledsalmon.jpg';
 import avocadotoast from '../assets/avocadotoast.jpg';
 import turkeysandwich from '../assets/turkeysandwich.jpg';
 import pasta from '../assets/pasta.jpg';
-import image5 from '../assets/image5.jpg';
+import image5 from '../assets/image6.jpg';
 
 const defaultRecipes = [
   { name: 'Oatmeal with banana', calories: 300, category: 'Breakfast', image: oatmeal },
@@ -27,25 +26,40 @@ const Meals = () => {
   const [meals, setMeals] = useState([]);
   const [userEmail, setUserEmail] = useState('');
 
-@ -25,13 +43,15 @@ const Meals = () => {
+  useEffect(() => {
+    const isLoggedIn = localStorage.getItem('ems_logged_in') === 'true';
+    const email = localStorage.getItem('ems_logged_in_email');
+    if (!isLoggedIn || !email) {
+      alert('You must be logged in to access Meals.');
+      navigate('/login');
+      return;
+    }
+    setUserEmail(email);
+
+    const allMeals = JSON.parse(localStorage.getItem('ems_meals')) || [];
+    const userMeals = allMeals.filter((m) => m.email === email);
+    setMeals(userMeals);
+  }, [navigate]);
 
   const handleAddMeal = (e) => {
     e.preventDefault();
-    if (!mealName || !calories) return;
     if (!mealName || !calories || !category) return;
 
     const newMeal = {
       id: Date.now(),
       name: mealName,
       calories: parseInt(calories),
-      email: userEmail
       category,
       image: '',
       email: userEmail,
     };
 
     const allMeals = JSON.parse(localStorage.getItem('ems_meals')) || [];
-@ -43,6 +63,22 @@ const Meals = () => {
+    const updatedAllMeals = [...allMeals, newMeal];
+    localStorage.setItem('ems_meals', JSON.stringify(updatedAllMeals));
+
+    const userMeals = updatedAllMeals.filter((m) => m.email === userEmail);
+    setMeals(userMeals);
 
     setMealName('');
     setCalories('');
@@ -68,12 +82,15 @@ const Meals = () => {
   };
 
   const handleDelete = (id) => {
-@ -55,46 +91,81 @@ const Meals = () => {
+    const allMeals = JSON.parse(localStorage.getItem('ems_meals')) || [];
+    const updatedAllMeals = allMeals.filter((m) => m.id !== id);
+    localStorage.setItem('ems_meals', JSON.stringify(updatedAllMeals));
+
+    const userMeals = updatedAllMeals.filter((m) => m.email === userEmail);
+    setMeals(userMeals);
   };
 
   return (
-    <div style={{ padding: '2rem', fontFamily: 'sans-serif', maxWidth: '800px', margin: '0 auto' }}>
-      <h2 style={{ textAlign: 'center', marginBottom: '2rem' }}>🍽 Create Meal</h2>
     <div style={{
       fontFamily: 'sans-serif',
       backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.6), rgba(0,0,0,0.6)), url(${image5})`,
@@ -87,23 +104,6 @@ const Meals = () => {
       <h2 style={{ textAlign: 'center', marginBottom: '2rem', fontSize: '2rem' }}>🍽 Create Meal</h2>
 
       <div style={formContainer}>
-        <input
-          type="text"
-          placeholder="Meal name (e.g., chicken)"
-          value={mealName}
-          onChange={(e) => setMealName(e.target.value)}
-          style={inputStyle}
-        />
-
-        <input
-          type="number"
-          placeholder="Calories"
-          value={calories}
-          onChange={(e) => setCalories(e.target.value)}
-          style={inputStyle}
-        />
-
-        <button onClick={handleAddMeal} style={buttonStyleGreen}>Save Meal</button>
         <form style={formStyle}>
           <input type="text" placeholder="Meal name" value={mealName} onChange={(e) => setMealName(e.target.value)} style={inputStyle} />
           <input type="number" placeholder="Calories" value={calories} onChange={(e) => setCalories(e.target.value)} style={inputStyle} />
@@ -116,7 +116,6 @@ const Meals = () => {
         </form>
       </div>
 
-      <h3 style={{ textAlign: 'center', marginTop: '3rem' }}>Saved Meals</h3>
       <h3 style={{ textAlign: 'center', marginTop: '3rem', fontSize: '2rem' }}>🥘 Recipes</h3>
 
       <div style={{
@@ -149,35 +148,28 @@ const Meals = () => {
         ))}
       </div>
 
-      <div style={gridStyle}>
       <h3 style={{ textAlign: 'center', marginTop: '3rem', fontSize: '2rem' }}>📋 Your Meals</h3>
       <ul style={{ listStyle: 'none', padding: 0, marginTop: '1rem', maxWidth: '700px', marginInline: 'auto' }}>
         {meals.map((meal) => (
-          <div key={meal.id} style={mealCardStyle}>
-            <h4 style={{ textTransform: 'capitalize' }}>🍴 {meal.name}</h4>
-            <p>{meal.calories} kcal</p>
           <li key={meal.id} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', background: '#4b5563', color: 'white', padding: '1rem', borderRadius: '8px', marginBottom: '1rem' }}>
             <div>
               <strong>🍴 {meal.name}</strong> — {meal.calories} kcal · {meal.category}
             </div>
             <button onClick={() => handleDelete(meal.id)} style={deleteStyle}>Delete</button>
-          </div>
           </li>
         ))}
-      </div>
       </ul>
     </div>
   );
 };
 
 const formContainer = {
-  maxWidth: '500px',
   width: '100%',
   maxWidth: '400px',
   margin: '0 auto',
   backgroundColor: '#f9fafb',
   padding: '1.5rem',
-@ -102,23 +173,63 @@ const formContainer = {
+  borderRadius: '10px',
   boxShadow: '0 4px 10px rgba(0,0,0,0.06)'
 };
 
@@ -192,23 +184,17 @@ const inputStyle = {
   display: 'block',
   width: '100%',
   padding: '12px',
-  marginBottom: '1rem',
   borderRadius: '8px',
   border: '1px solid #ccc',
-  fontSize: '1rem'
   fontSize: '1rem',
   boxSizing: 'border-box'
 };
 
-const buttonStyleGreen = {
-  marginTop: '1rem',
-  padding: '12px',
 const buttonStyleBlue = {
   width: '100%',
   padding: '12px',
   border: 'none',
   borderRadius: '8px',
-  backgroundColor: '#16a34a',
   backgroundColor: '#00aaff',
   color: 'white',
   fontWeight: 'bold',
@@ -247,29 +233,15 @@ const logButtonStyle = {
   color: 'white',
   fontWeight: 'bold',
   cursor: 'pointer'
-@ -130,23 +241,7 @@ const deleteStyle = {
+};
+
+const deleteStyle = {
+  backgroundColor: '#dc2626',
+  color: 'white',
   border: 'none',
   padding: '6px 12px',
   borderRadius: '6px',
-  cursor: 'pointer',
-  marginTop: '1rem'
-};
-
-const mealCardStyle = {
-  backgroundColor: '#f3f4f6',
-  borderRadius: '10px',
-  padding: '1rem',
-  textAlign: 'left',
-  boxShadow: '0 2px 6px rgba(0,0,0,0.08)'
-};
-
-const gridStyle = {
-  display: 'grid',
-  gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))',
-  gap: '1.5rem',
-  marginTop: '1rem'
   cursor: 'pointer'
 };
 
-export default Meals;
 export default Meals;

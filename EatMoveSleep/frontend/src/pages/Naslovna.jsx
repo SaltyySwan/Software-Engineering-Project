@@ -1,71 +1,74 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import '../index.css';
-import bgImage from '../assets/image1.jpg'; 
+import heroImage from '../assets/image1.jpg';
+import image2 from '../assets/image2.jpg';
+import Header from '../components/Header';
+import Footer from '../components/Footer';
 
 const Naslovna = () => {
   const navigate = useNavigate();
 
- useEffect(() => {
-  const isLoggedIn = localStorage.getItem('ems_logged_in');
-  if (isLoggedIn === 'true') {
-    navigate('/dashboard');
-  }
-}, [navigate]);
-
-
   return (
-    <div className="home-container" style={{
-      backgroundImage: `url(${bgImage})`,
-      backgroundSize: 'cover',
-      backgroundPosition: 'center',
-      minHeight: '100vh',
-      display: 'flex',
-      flexDirection: 'column',
-      justifyContent: 'flex-end',
-      alignItems: 'center',
-      padding: '2rem',
-      color: 'white'
-    }}>
-      <div className="overlay" style={{
-        backgroundColor: 'rgba(0, 0, 0, 0.6)',
-        padding: '2rem',
-        borderRadius: '12px',
-        maxWidth: '500px',
-        width: '100%',
-        textAlign: 'center'
-      }}>
-        <h1>Welcome to EatMoveSleep</h1>
-        <p style={{ margin: '1rem 0', fontSize: '18px' }}>
-          Your Health, Your Rules. Track, Improve, and Thrive — all offline & secure.
-        </p>
-        <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', marginTop: '1rem' }}>
-          <button onClick={() => navigate('/login')} style={buttonStyleLogin}>Login</button>
-          <button onClick={() => navigate('/signup')} style={buttonStyleSignup}>Sign Up</button>
+    <div className="page-container">
+      <Header />
+
+      <section
+        className="hero-section"
+        style={{ backgroundImage: `url(${heroImage})` }}
+      >
+        <div className="hero-overlay">
+          <h1 className="hero-title">
+            Your Health, Your Rules.<br />
+            Track, <span className="highlight">Improve</span>, And Thrive—All Offline & Secure.
+          </h1>
+          <p className="hero-subtitle">
+            Eat, Move, Sleep—track your wellness privately and <span className="underline-accent">effortlessly</span>.
+          </p>
+          <button className="get-started-btn" onClick={() => navigate('/signup')}>
+            Get Started
+          </button>
         </div>
-      </div>
+      </section>
+
+      <section className="info-section">
+        <h2 className="info-title">Set Goals. Log Workouts. Stay on Track.</h2>
+        <p className="info-desc">
+          Easily track your workouts, set training plans, and discover new routines to crush your goals.
+        </p>
+        <div className="info-blocks">
+          <div className="block">
+            🏃‍♀️ <strong>240</strong><br />Workouts Logged
+          </div>
+          <div className="block">
+            🍽️ <strong>180</strong><br />Meals Tracked
+          </div>
+          <div className="block">
+            😴 <strong>940</strong><br />Sleep Sessions
+          </div>
+        </div>
+      </section>
+
+      <section className="feature-section">
+        <div className="feature-text">
+          <h2 className="feature-title">
+            SET GOALS.<br />
+            LOG WORKOUTS.<br />
+            STAY ON TRACK.
+          </h2>
+          <p className="feature-desc">
+            Easily track your Workouts, set Training Plans, and discover new Workout Routines to crush your goals.
+          </p>
+          <button className="feature-btn" onClick={() => navigate('/signup')}>GET STARTED</button>
+        </div>
+        <div className="feature-image">
+          <img src={image2} alt="Workout Motivation" />
+        </div>
+      </section>
+
+      <Footer />
     </div>
   );
-};
-
-const buttonStyleLogin = {
-  padding: '0.75rem 1.5rem',
-  fontSize: '16px',
-  border: 'none',
-  borderRadius: '8px',
-  backgroundColor: '#6b21a8',
-  color: 'white',
-  cursor: 'pointer'
-};
-
-const buttonStyleSignup = {
-  padding: '0.75rem 1.5rem',
-  fontSize: '16px',
-  border: 'none',
-  borderRadius: '8px',
-  backgroundColor: '#4c1d95',
-  color: 'white',
-  cursor: 'pointer'
 };
 
 export default Naslovna;
